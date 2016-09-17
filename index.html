@@ -4,7 +4,40 @@
 	<title></title>
 </head>
 <body>
-<script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+<div class="container">
+
+
+	<!-- Row for Searching New York Times -->
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="panel panel-primary">
+				<div class="panel-body">
+					<form role="form">
+					  <div class="form-group">
+					    <label for="search">Search Term:</label>
+					    <input type="text" class="form-control" id="title">
+					  </div>
+					  <button type="submit" class="btn btn-default" id="runSearch"><i class="fa fa-search"></i> Search</button>
+  					  <button type="button" class="btn btn-default" id="clearAll"><i class="fa fa-trash"></i> Clear Results</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Retrieved Book -->
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="panel panel-primary">
+				<div class="panel-body" id="wellSection">
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</div>
+<script src="https://code.jquery.com/jquery.js"></script>
 <script type="text/javascript" src="app.js"></script>
 </body>
 </html>
