@@ -8,12 +8,13 @@
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="index.html" class="brand-logo">Logo</a>
+      <a id="logo-container" href="index.html" class="brand-logo">Neighborhood Book Club</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="index.html">Home</a></li>
         <li><a href="members.html">Members</a></li>
@@ -28,10 +29,119 @@
     </div>
   </nav>
 
+    <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header right white-text text-lighten-2">MEMBERS</h1>
+      </div>
+    </div>
+    <div class="parallax"><img src="background6.jpg" alt="Unsplashed background img 6"></div>
+  </div>
+
+  <!-- Member List-->
+    <div class="table-wrapper container">
+      <div class="panel panel-warning">
+        <div class="panel-heading">
+          <h3 class="panel-title"><strong>Active Members</strong></h3>
+        </div>
+        <div class="panel-body">
+          <table class="table table-hover" id='memberTable'>
+            <thead>
+              <tr>
+                <th>Member Name</th>
+                <th>Join Date</th>
+                <th>Telephone</th>
+                <th>Favorite Book</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  <!-- Add Employee  -->
+    <div class="panel panel-warning">
+      <div class="panel-heading">
+        <h3 class="panel-title"><strong>Join Members</strong></h3>
+      </div>
+      
+    <!-- Entry Form -->
+        <div class="panel-body">
+        <form>
+          <div class="form-group">
+            <label for="">Member Name</label>
+            <input type="text" class="form-control" id="memberNameInput">
+          </div>
+
+          <div class="form-group">
+            <label for="">Today's Date (DD/MM/YY - ex: 01/01/89)</label>
+            <input type="text" class="form-control" id="startInput">
+          </div>
+
+          <div class="form-group">
+            <label for="">Telephone</label>
+            <input type="text" class="form-control" id="telephoneInput">
+          </div>
+
+           <div class="form-group">
+            <label for="">Favorite Book</label>
+            <input type="text" class="form-control" id="bookInput">
+          </div>
+          
+          <button type="submit" class="btn btn-primary" id="addMemberBtn">Submit</button>
+        </form>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+  <footer class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Book Club Team Managers</h5>
+          <p class="grey-text text-lighten-4">We live in the neighborhood and wanted to create a meeting place that brings us together.  Let us know if you have ideas to improve the book club experience.</p>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Team Leads</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Wilkie Overton, President</a></li>
+            <li><a class="white-text" href="#!">Gabrielle Hardy, Treasurer</a></li>
+            <li><a class="white-text" href="#!">Sandra Leal, Secretary</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Contact Info</h5>
+          <ul>
+            <li><a class="white-text" href="#!">t: 512.555.1213</a></li>
+            <li><a class="white-text" href="#!">t: 512.555.1212</a></li>
+            <li><a class="white-text" href="#!">t: 512.555.1211</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="brown-text text-lighten-3">Book Worms</a>
+      </div>
+    </div>
+  </footer>
+
  <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 
   </body>
