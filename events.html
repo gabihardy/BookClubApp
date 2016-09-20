@@ -33,51 +33,121 @@
   <!--Picture banner -->
   <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
-      <div class="container">
-        <br><br>
-        <h1 class="header right teal-text text-lighten-2">Events</h1>
-      </div>
+      <!--Information in 3 columns -->
+  <div class="container">
+   <div class="row">
+        <h3 class="center">October Book</h3>
+
+      <!--   Col 1 is cover pic of book of the month  -->
+        <div class="col s12 m4">
+          <div class="section">
+            <div class = "row"> 
+              <img src="bookSamp.jpg" class="thumbnail" alt="book cover"><
+            </div>
+          </div>  <!--closes section-->
+        </div>    <!--closes col -->
+
+
+      <!--   Col 2 provides details pulled from Book API  -->
+        <div class="col s12 m4">
+          <div class="section">
+             <ul class="collection with-header">
+                <li class="collection-header"><h4>Book Details</h4></li>
+                <li class="collection-item">Title: </li>
+                <li class="collection-item">Author: </li>
+                <li class="collection-item">Pages: </li>
+                <li class="collection-item">Short Summary</li>
+              </ul>
+          </div>  <!--closes section -->
+        </div>    <!--closes column -->
+
+      <!--Prints host name and address -->
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">library_books</i></h2>
+            <h5 class="center">Book list</h5>
+
+            <p class="light">Scroll through a list of past book choices</p>
+          </div>    <!--closes div icon block -->
+        </div>      <!--closes col s12 for icon book list -->
+      </div>        <!--closes row -->
+    </div>          <!--closes section -->
+  </div>            <!--closes container -->
     </div>
-    <div class="parallax"><img src="background6.jpg" alt="Unsplashed background img 6"></div>
+    <<div class="parallax"><img src="background5.jpg" alt="Unsplashed background img 1"></div>
   </div>
 
-  
-  <div class="container">
+  <!--Divider panel between table banner and table list -->
+   <div class="section no-pad-bot" id="memberPanel1">
+      <div class = "container">
+        <div class="row">
+          <div class ="col s9 pulled-s3"><span class="flow-text">
+            <h3>Scheduled Events</h3>
+            </span></div>
+        </div>
+        </div>
+      </div>
+  </div>
 
-  <!-- Member List-->
-   <h5 class="panel-title"><strong>Active Members</strong></h5>
-   <table>
+  <!-- Event List: assigns each member a date to host a meeting-->
+  <div class="container">
+    <table>
         <thead>
           <tr>
-              <th data-field="memberName">Name</th>
-              <th data-field="joinDate">Member Since</th>
-              <th data-field="telephone">Telephone</th>
+              <th data-field="eventDate">Meeting Date</th>
+              <th data-field="memberName">Host</th>
+              <th data-field="Telephone">Telephone</th>
+              <th data-field="bookChoice">Book Title</th>
+              <th data-field="author">Author</th>
+              <th data-field="pageCount">No of Pages</th>
           </tr>
         </thead>
 
+        <!--Placeholder data.  Table will be built dynamically-->
         <tbody>
           <tr>
-            <td>Alvin</td>
-            <td>09/01/16</td>
+            <td>10/17/2016</td>
+            <td>Alvin Chow</td>
             <td>512-555-6123</td>
+            <td>Cat in the Hat</td>
+            <td>Dr. Seuss</td>
+            <td>61</td>
           </tr>
           <tr>
-            <td>Alan</td>
-            <td>01/05/15</td>
+            <td>11/21/2016</td>
+            <td>Alan Rickert</td>
             <td>512-555-7615</td>
+            <td>Atlas Shrugged</td>
+            <td>Ayn Rand</td>
+            <td>1192</td>
           </tr>
           <tr>
-            <td>Jonathan</td>
-            <td>05/20/78</td>
+            <td>12/19/2016</td>
+            <td>Jonathan Jones</td>
             <td>512-555-0987</td>
+            <td>Racing in the Rain</td>
+            <td>Garth Stein</td>
+            <td>304</td>
           </tr>
+          <tr></tr>
         </tbody>
-      </table>
+    </table>
+  </div> <!--closes table container -->
             
+  <!--Dark teal Divider panel between table list and form -->
+      <div class="section no-pad-bot" id="memberPanel2">
+        <div class = "container">
+          <h3>Your turn to host?</h3>
+          <h5>Find and click your name in the "Scheduled Events" to enter your book choice</h5>
+          <p>We have built in a "courtesy" time window to allow each member ample time to acquire and read monthly book titles.  As a host, you are able to change your book choice up to 3 months in advance of the meeting date.  At that point, your book choice is locked in and members are encouraged to acquire and read the book.
+          </p><br>
+        </div>
+      </div>
+
 
     <!-- ADD MEMBER: Entry Form collects input from users-->
+  <div class="container">
      <div class="row">
-        <h3 class="panel-title"><strong>Join the Club!</strong></h3>
         <form class="col s12">
           <div class="row">
             <div class="input-field col s6">
@@ -97,29 +167,47 @@
           </div>
           <div class="row">
             <div class="input-field col s12">
+              <input id="address" type="text" class="validate">
+              <label for="address">Address #</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="city" type="text" class="validate">
+              <label for="city">City</label>
+            </div>
+            <div class="input-field col s2">
+              <input id="state" type="text" class="validate">
+              <label for="TX">State</label>
+            </div>
+            <div class="input-field col s4">
+              <input id="zip" type="text" class="validate">
+              <label for="zip">ZIP</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
               <input id="telephone" type="text" class="validate">
               <label for="telephone">Telephone #</label>
             </div>
           </div>
+          <button type="submit" class="btn btn-primary" id="addMemberBtn">Submit</button>
         </form>
     </div>
 
-    </div> <!--closes container-->
+  </div> <!--closes form container-->
            
 
-
-  
-
-  <!--Builds the footer -->
+<!--footer section -->
   <footer class="page-footer teal">
     <div class="container">
       <div class="row">
+        <!--Message from managers -->
         <div class="col l6 s12">
           <h5 class="white-text">Book Club Team Managers</h5>
           <p class="grey-text text-lighten-4">We live in the neighborhood and wanted to create a meeting place that brings us together.  Let us know if you have ideas to improve the book club experience.</p>
-
-
         </div>
+        <!--Names of team leads -->
         <div class="col l3 s12">
           <h5 class="white-text">Team Leads</h5>
           <ul>
@@ -128,6 +216,7 @@
             <li><a class="white-text" href="#!">Sandra Leal, Secretary</a></li>
           </ul>
         </div>
+        <!--Contact info for team leads -->
         <div class="col l3 s12">
           <h5 class="white-text">Contact Info</h5>
           <ul>
@@ -138,9 +227,10 @@
         </div>
       </div>
     </div>
+    <!--Notation of website builders -->
     <div class="footer-copyright">
       <div class="container">
-      Made by <a class="brown-text text-lighten-3">Book Worms</a>
+      Made by <a class="brown-text text-lighten-3">Novela Innovation Group</a>
       </div>
     </div>
   </footer>

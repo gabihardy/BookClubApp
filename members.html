@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
   <title>Book Club</title>
 
-  <!-- CSS  -->
+  <!-- CSS link -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
+
 <body>
+  <!--Logo and Nav Bar header -->
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
       <a id="logo-container" href="index.html" class="brand-logo">Neighborhood Book Club</a>
@@ -29,89 +30,162 @@
     </div>
   </nav>
 
-    <div id="index-banner" class="parallax-container">
+  <!--Picture banner -->
+  <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
       <div class="container">
         <br><br>
-        <h1 class="header right teal-text text-lighten-2">MEMBERS</h1>
+        <h1 class="header right teal-text text-lighten-2"></h1>
       </div>
     </div>
     <div class="parallax"><img src="background6.jpg" alt="Unsplashed background img 6"></div>
   </div>
 
+  <!--Divider panel between table banner and table list -->
+   <div class="section no-pad-bot" id="memberPanel1">
+      <div class = "container">
+        <div class="row">
+          <div class ="col s9 pulled-s3"><span class="flow-text">
+            <h3>Members</h3>
+            </span></div>
+          <div class = "col s3" class="right">
+            <a href="members.html" class="btn-large waves-effect waves-light teal lighten-1">Join Today</a>
+          </div>
+        </div>
+        </div>
+      </div>
+  </div>
+
   <!-- Member List-->
-    <div class="table-wrapper container">
-      <div class="panel panel-warning">
-        <div class="panel-heading">
-          <h3 class="panel-title"><strong>Active Members</strong></h3>
-        </div>
-        <div class="panel-body">
-          <table class="table table-hover" id='memberTable'>
-            <thead>
-              <tr>
-                <th>Member Name</th>
-                <th>Join Date</th>
-                <th>Telephone</th>
-                <th>Favorite Book</th>
-              </tr>
-            </thead>
-            <tbody>
-              
-            </tbody>
-          </table>
+  <div class="container">
+    <table>
+        <thead>
+          <tr>
+              <th data-field="memberName">Name</th>
+              <th data-field="joinDate">Member Since</th>
+              <th data-field="Address">Address</th>
+              <th data-field="City">City</th>
+              <th data-field="State">State</th>
+              <th data-field="ZIP">ZIP</th>
+              <th data-field="telephone">Telephone</th>
+          </tr>
+        </thead>
+
+        <!--Placeholder data.  Table will be built dynamically-->
+        <tbody>
+          <tr>
+            <td>Alvin Cho</td>
+            <td>09/01/16</td>
+            <td>Long Loop Court </td>
+            <td>San Marcos, </td>
+            <td>TX</td>
+            <td>73424</td>
+            <td>512-555-6123</td>
+          </tr>
+          <tr>
+            <td>Alan Rickert</td>
+            <td>01/05/15</td>
+            <td>Round Circle Dr</td>
+            <td>Austin</td>
+            <td>TX</td>
+            <td>76123</td>
+            <td>512-555-7615</td>
+          </tr>
+          <tr>
+            <td>Jonathan Jones</td>
+            <td>05/20/78</td>
+            <td>Happy Lane</td>
+            <td>Austin</td>
+            <td>TX</td>
+            <td>71121</td>
+            <td>512-555-0987</td>
+          </tr>
+          <tr></tr>
+        </tbody>
+    </table>
+  </div> <!--closes table container -->
+            
+  <!--Divider panel between table list and form -->
+      <div class="section no-pad-bot" id="memberPanel2">
+        <div class = "container">
+          <h3>Join the Club!</h3>
+          <h5>Membership is fun and easy, and more importantly, it's free!</h5>
+          <p>Submit your name and contact information so we know to include you in our monthly events.  You will also be added to the rotation schedule to host a monthly event.  Let's get started...
+          </p><br>
         </div>
       </div>
-    </div>
 
-  <!-- Add Member -->
-    <div class="panel panel-warning">
-      <div class="panel-heading">
-        <h3 class="panel-title"><strong>Join Members</strong></h3>
-      </div>
-      
-    <!-- Entry Form -->
-        <div class="panel-body">
-        <form>
-          <div class="form-group">
-            <label for="">Member Name</label>
-            <input type="text" class="form-control" id="memberNameInput">
+
+    <!-- ADD MEMBER: Entry Form collects input from users-->
+  <div class="container">
+     <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="firstName" type="text" class="validate">
+              <label for="first_name">First Name</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="last_name" type="text" class="validate">
+              <label for="last_name">Last Name</label>
+            </div>
           </div>
-
-          <div class="form-group">
-            <label for="">Today's Date (DD/MM/YY - ex: 01/01/89)</label>
-            <input type="text" class="form-control" id="startInput">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="dateJoined" type="text" class="validate">
+              <label for="dateJoined">Today's Date (DD/MM/YY - ex: 01/01/89)</label>
+            </div>
           </div>
-
-          <div class="form-group">
-            <label for="">Telephone</label>
-            <input type="text" class="form-control" id="telephoneInput">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="address" type="text" class="validate">
+              <label for="address">Address #</label>
+            </div>
           </div>
-
-           <div class="form-group">
-            <label for="">Favorite Book</label>
-            <input type="text" class="form-control" id="bookInput">
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="city" type="text" class="validate">
+              <label for="city">City</label>
+            </div>
+            <div class="input-field col s2">
+              <input id="state" type="text" class="validate">
+              <label for="TX">State</label>
+            </div>
+            <div class="input-field col s4">
+              <input id="zip" type="text" class="validate">
+              <label for="zip">ZIP</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="telephone" type="text" class="validate">
+              <label for="telephone">Telephone #</label>
+            </div>
+          </div>
+          <div class="row">
+            <button type="submit" class="btn btn-primary" id="addMemberBtn">Submit</button>
+          </div>
+          <!--Holding spot for message confirmation regarding success/failure of submitting form -->
+          <div class="row">
+            <div class="col s12" id="messageSpot"><h5>Congratulations, you've been added as a new member</h5>
+            </div>
           </div>
           
-          <button type="submit" class="btn btn-primary" id="addMemberBtn">Submit</button>
         </form>
+    </div> <!--closes row holding form -->
+  </div> <!--closes form container-->
+           
 
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-
+<!--footer section -->
   <footer class="page-footer teal">
     <div class="container">
       <div class="row">
+        <!--Message from managers -->
         <div class="col l6 s12">
           <h5 class="white-text">Book Club Team Managers</h5>
           <p class="grey-text text-lighten-4">We live in the neighborhood and wanted to create a meeting place that brings us together.  Let us know if you have ideas to improve the book club experience.</p>
-
-
         </div>
+        <!--Names of team leads -->
         <div class="col l3 s12">
           <h5 class="white-text">Team Leads</h5>
           <ul>
@@ -120,6 +194,7 @@
             <li><a class="white-text" href="#!">Sandra Leal, Secretary</a></li>
           </ul>
         </div>
+        <!--Contact info for team leads -->
         <div class="col l3 s12">
           <h5 class="white-text">Contact Info</h5>
           <ul>
@@ -130,9 +205,10 @@
         </div>
       </div>
     </div>
+    <!--Notation of website builders -->
     <div class="footer-copyright">
       <div class="container">
-      Made by <a class="brown-text text-lighten-3">Book Worms</a>
+      Made by <a class="brown-text text-lighten-3">Novela Innovation Group</a>
       </div>
     </div>
   </footer>
@@ -141,7 +217,7 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+ 
 
 
   </body>
