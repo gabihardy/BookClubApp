@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Book Club</title>
+
+  <!-- CSS link -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+
+<body>
+  <!--Logo and Nav Bar header -->
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="index.html" class="brand-logo">Neighborhood Book Club</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="members.html">Members</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="booklists.html">Book List</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <!--Picture banner -->
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header right teal-text text-lighten-2">Events</h1>
+      </div>
+    </div>
+    <div class="parallax"><img src="background6.jpg" alt="Unsplashed background img 6"></div>
+  </div>
+
+  
+  <div class="container">
+
+  <!-- Member List-->
+   <h5 class="panel-title"><strong>Active Members</strong></h5>
+   <table>
+        <thead>
+          <tr>
+              <th data-field="memberName">Name</th>
+              <th data-field="joinDate">Member Since</th>
+              <th data-field="telephone">Telephone</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Alvin</td>
+            <td>09/01/16</td>
+            <td>512-555-6123</td>
+          </tr>
+          <tr>
+            <td>Alan</td>
+            <td>01/05/15</td>
+            <td>512-555-7615</td>
+          </tr>
+          <tr>
+            <td>Jonathan</td>
+            <td>05/20/78</td>
+            <td>512-555-0987</td>
+          </tr>
+        </tbody>
+      </table>
+            
+
+    <!-- ADD MEMBER: Entry Form collects input from users-->
+     <div class="row">
+        <h3 class="panel-title"><strong>Join the Club!</strong></h3>
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="firstName" type="text" class="validate">
+              <label for="first_name">First Name</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="last_name" type="text" class="validate">
+              <label for="last_name">Last Name</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="dateJoined" type="text" class="validate">
+              <label for="dateJoined">Today's Date (DD/MM/YY - ex: 01/01/89)</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="telephone" type="text" class="validate">
+              <label for="telephone">Telephone #</label>
+            </div>
+          </div>
+        </form>
+    </div>
+
+    </div> <!--closes container-->
+           
+
+
+  
+
+  <!--Builds the footer -->
+  <footer class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Book Club Team Managers</h5>
+          <p class="grey-text text-lighten-4">We live in the neighborhood and wanted to create a meeting place that brings us together.  Let us know if you have ideas to improve the book club experience.</p>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Team Leads</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Wilkie Overton, President</a></li>
+            <li><a class="white-text" href="#!">Gabrielle Hardy, Treasurer</a></li>
+            <li><a class="white-text" href="#!">Sandra Leal, Secretary</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Contact Info</h5>
+          <ul>
+            <li><a class="white-text" href="#!">t: 512.555.1213</a></li>
+            <li><a class="white-text" href="#!">t: 512.555.1212</a></li>
+            <li><a class="white-text" href="#!">t: 512.555.1211</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="brown-text text-lighten-3">Book Worms</a>
+      </div>
+    </div>
+  </footer>
+
+ <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+ 
+
+
+  </body>
+  </html>
