@@ -30,6 +30,16 @@ p {
     width: 100%;
   }
 
+#memberPanel1 {
+  background-color: #F4F7D2;
+  color: teal;
+}
+
+#memberPanel2 {
+  background-color: #1a627a;
+  color: white;
+}
+
 @media only screen and (max-width : 992px) {
   .parallax-container .section {
     position: absolute;
