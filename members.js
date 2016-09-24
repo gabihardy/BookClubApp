@@ -1,3 +1,4 @@
+'use strict';
 $(document).ready(function() {
 
 
@@ -15,8 +16,8 @@ $(document).ready(function() {
 
 	// // Initial Values
 	// var firstName = "";
-	// var last_name = "";
-	// var dateJoined = "";
+	// var lastName = "";
+	// var email = "";
 	// var address = "";
 	// var city = "";
 	// var state = "";
@@ -48,33 +49,54 @@ $(document).ready(function() {
 			state: state,
 			zip: zip,
 			phone: phone,
-			joinDate: joinDate
+			joinDate: joinDatef
 		});
 	});
 
 	database.ref().on("child_added", function(snapshot) {
 		
 		console.log(snapshot.val());
-		console.log(snapshot.val().firstName);
-		console.log(snapshot.val().lastName);
-		console.log(snapshot.val().email);
-		console.log(snapshot.val().address);
-		console.log(snapshot.val().city);
-		console.log(snapshot.val().state);
-		console.log(snapshot.val().zip);
-		console.log(snapshot.val().phone);
-		console.log(snapshot.val().joinDate);
+		var firstName = snapshot.val().firstName;
+		var lastName = snapshot.val().lastName;
+		var email = snapshot.val().email;
+		var address = snapshot.val().address;
+		var city = snapshot.val().city;
+		var state = snapshot.val().state;
+		var zip = snapshot.val().zip;
+		var phone = snapshot.val().phone;
+		var joinDate = snapshot.val().joinDate;
+
+		var memberTable = $("#memberTable");
+		var tableRow = $("<tr>");
+		
+		tableRow.append("<td>" + firstName + " " + lastName +"</td>");
+		tableRow.append("<td>" + email + "</td>");
+		tableRow.append("<td>" + address +"</td>");
+		tableRow.append("<td>" + city + "</td>");
+		tableRow.append("<td>" + state + "</td>");
+		tableRow.append("<td>" + zip + "</td>");
+		tableRow.append("<td>" + phone + "</td>");
+		tableRow.append("<td>" + joinDate + "</td")
+		memberTable.append(tableRow);
 		// Change the HTML to reflect
-		database.ref().orderByChild("startInput").limitToLast(1).on("child_added", function(snapshot){
-			$("memberName").html(snapshot.val().memberNameInput);
-			$("#joinDate").html(snapshot.val().startInput);
-			$("Address").html(snapshot.val().address);
-			$("#phoneDisplay").html(snapshot.val().telephone);
+		// database.ref().orderByChild("startInput").limitToLast(1).on("child_added", function(snapshot){
+			//  $("#first").html(snapshot.val().firstName);
+			// // $("#last").html(snapshot.val().lastName);
+			// $("#emailDisplay").html(snapshot.val().email);
+			// $("#addressDisplay").html(snapshot.val().address);
+			// $("#cityDisplay").html(snapshot.val().city);
+			// $("#stateDisplay").html(snapshot.val().state);
+			// $("#zipDisplay").html(snapshot.val().zip);
+			// $("#phoneDisplay").html(snapshot.val().telephone);
+			// $("#memberSince").html(snapshot.val().joinDate);
+
+
+
 
 		}, function(errorObject){
 			console.log("Errors handled: " + errorObject.code)
 		});
-	});
+	// });
 
 
 
