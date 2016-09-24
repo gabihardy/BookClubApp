@@ -21,7 +21,7 @@
         <li><a href="members.html">Members</a></li>
         <li><a href="events.html">Events</a></li>
         <li><a href="booklists.html">Book List</a></li>
-      </ul>
+      </ul> 
 
       <ul id="nav-mobile" class="side-nav">
         <li><a href="#">Navbar Link</a></li>
@@ -64,10 +64,10 @@
               <th data-field="memberName">Name</th>
               <th data-field="joinDate">Member Since</th>
               <th data-field="Address">Address</th>
-              <th data-field="City">City</th>
-              <th data-field="State">State</th>
-              <th data-field="ZIP">ZIP</th>
-              <th data-field="telephone">Telephone</th>
+              <!-- <th data-field="City">City</th>
+              <th data-field="State">State</th> -->
+              <!-- <th data-field="ZIP">ZIP</th> -->
+              <th data-field="phoneDisplay">Telephone</th>
           </tr>
         </thead>
 
@@ -122,43 +122,43 @@
         <form class="col s12">
           <div class="row">
             <div class="input-field col s6">
-              <input id="firstName" type="text" class="validate">
-              <label for="first_name">First Name</label>
+              <input required id="firstName" type="text" class="validate">
+              <label for="firstName">First Name</label>
             </div>
             <div class="input-field col s6">
-              <input id="last_name" type="text" class="validate">
-              <label for="last_name">Last Name</label>
+              <input required id="lastName" type="text" class="validate">
+              <label for="lastName">Last Name</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input id="dateJoined" type="text" class="validate">
-              <label for="dateJoined">Today's Date (DD/MM/YY - ex: 01/01/89)</label>
+              <input required id="email" type="email" class="validate">
+              <label for="email">Email</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input id="address" type="text" class="validate">
-              <label for="address">Address #</label>
+              <input required id="address" type="text" class="validate">
+              <label for="address">Address</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s6">
-              <input id="city" type="text" class="validate">
+              <input required id="city" type="text" class="validate">
               <label for="city">City</label>
             </div>
             <div class="input-field col s2">
-              <input id="state" type="text" class="validate">
+              <input required id="state" type="text" class="validate">
               <label for="TX">State</label>
             </div>
             <div class="input-field col s4">
-              <input id="zip" type="text" class="validate">
+              <input required id="zip" type="text" class="validate">
               <label for="zip">ZIP</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input id="telephone" type="text" class="validate">
+              <input required id="phone" type="text" class="validate">
               <label for="telephone">Telephone #</label>
             </div>
           </div>
@@ -215,6 +215,9 @@
 
  <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="members.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
  
