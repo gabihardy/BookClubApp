@@ -18,8 +18,8 @@ $.ajax({url: queryURL, method: 'GET', data: {limit: 1}, dataType: "json"}).done(
 				console.log(response.docs.cover_edition_key);
 				
 				 $("#featuredBookCover").append("<img src=http://covers.openlibrary.org/b/isbn/" + response.docs[0].isbn[0] + "-M.jpg />");
-				// $("#featuredBookView").after("<div>" + (response.docs[0].author_name[0]) + "</>");
-				// $("#featuredBookView").after("<div>" + (response.docs[0].title) + "</>");
+				$("#featuredBookView").after("<div>" + (response.docs[0].author_name[0]) + "</>");
+				$("#featuredBookView").after("<div>" + (response.docs[0].title) + "</>");
 
 });
 // }
@@ -71,17 +71,17 @@ $.ajax({url: queryURL, method: 'GET', data: {limit: 1}, dataType: "json"}).done(
 
 
   // Initialize Firebase
-//   var config = {
-//     apiKey: "AIzaSyAc4Aqr3pI5k-bOohz3pXrNflbkGoCKAu4",
-//     authDomain: "wilkiesfirst.firebaseapp.com",
-//     databaseURL: "https://wilkiesfirst.firebaseio.com",
-//     storageBucket: "wilkiesfirst.appspot.com",
+  var config = {
+    apiKey: "AIzaSyAc4Aqr3pI5k-bOohz3pXrNflbkGoCKAu4",
+    authDomain: "wilkiesfirst.firebaseapp.com",
+    databaseURL: "https://wilkiesfirst.firebaseio.com",
+    storageBucket: "wilkiesfirst.appspot.com",
     
-//   };
+  };
 
-// firebase.initializeApp(config);
+firebase.initializeApp(config);
 
-// var database = firebase.database();
+var database = firebase.database();
 
 
 // 2. Button for adding Employees
