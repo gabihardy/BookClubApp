@@ -49,7 +49,7 @@ $(document).ready(function() {
 			state: state,
 			zip: zip,
 			phone: phone,
-			joinDate: joinDatef
+			joinDate: joinDate
 		});
 	});
 
@@ -65,6 +65,8 @@ $(document).ready(function() {
 		var zip = snapshot.val().zip;
 		var phone = snapshot.val().phone;
 		var joinDate = snapshot.val().joinDate;
+
+		// lastName.sort();
 
 		var memberTable = $("#memberTable");
 		var tableRow = $("<tr>");
