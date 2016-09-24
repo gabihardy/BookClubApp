@@ -28,15 +28,18 @@ $(document).ready(function() {
 	$("#addMemberBtn").on("click", function(E) {
 		E.preventDefault();
 		console.log('test');
+		 $('#modal1').openModal();
 
-		firstName = $('#firstName').val().trim();
-		lastName  = $('#lastName').val().trim();
-		email     = $("#email").val().trim();
-		address   = $('#address').val().trim();
-		city      = $('#city').val().trim();
-		state     = $('#state').val().trim();
-		zip       = $('#zip').val().trim();
-		phone     = $('#phone').val().trim();
+		var firstName = $('#firstName').val().trim();
+		var lastName  = $('#lastName').val().trim();
+		var email     = $("#email").val().trim();
+		var address   = $('#address').val().trim();
+		var city      = $('#city').val().trim();
+		var state     = $('#state').val().trim();
+		var zip       = $('#zip').val().trim();
+		var phone     = $('#phone').val().trim();
+
+		
 
 		var joinDate = Date.now();
 
@@ -51,6 +54,7 @@ $(document).ready(function() {
 			phone: phone,
 			joinDate: joinDate
 		});
+
 	});
 
 	database.ref().on("child_added", function(snapshot) {
