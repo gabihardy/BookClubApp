@@ -10,9 +10,9 @@ $.ajax({url: queryURL, method: 'GET', data: {limit: 1}, dataType: "json"}).done(
 				console.log(response.docs[0].title);
 				console.log(response.docs.cover_edition_key);
 				
-				 $("#featuredBookCover").append("<img src=http://covers.openlibrary.org/b/isbn/" + response.docs[0].isbn[0] + "-M.jpg />");
+				$("#featuredBookCover").append("<img src=http://covers.openlibrary.org/b/isbn/" + response.docs[0].isbn[0] + "-M.jpg />");
 				$("#featuredBookAuthor").after("<div>" + (response.docs[0].author_name[0]) + "</>");
-				$("#featuredBookTitle").after("<div>" + (response.docs[0].title) + "</>");
+				$("#featuredBookTitle").append("<div>" + (response.docs[0].title) + "</>");
 
 });
 
@@ -51,9 +51,9 @@ database.ref().on("child_added", function(snapshot) {
         var memberTable = $("#memberTable");
 		var tableRow = $("<tr>");
 
-		tableRow.append("<td>" + joinDate + "</td");
+		tableRow.append("<td>" + moment().endOf('month').startOf('isoweek').format("MM/DD/YY") + "</td");
 		tableRow.append("<td>" + name  + "</td>");
-		tableRow.append("<td>" + phone + "</td>");
+		tableRow.append("<td>" + phone.replace(/(\d{3})(\d{3})(\d{4})/,'$1-$2-$3') + "</td>");
 		// tableRow.append("<td>" + bookTitle + "</td>");
 		// tableRow.append("<td>" + bookAuthor + "</td>");
 		// tableRow.append("<td>" + numPages + "</td>")				

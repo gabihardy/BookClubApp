@@ -35,53 +35,50 @@
   <!--Picture banner -->
   <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
-      <!--Information in 3 columns -->
-  <div class="container">
-   <div class="row">
-        <h3 class="center">October Book</h3>
+    <div class="container">
+
+    <!--Banner header title -->
+      <h2 class="header center white-text text-lighten-2">Book of the Month</h2>
+      <br><br>
+      <div class="row">
 
       <!--   Col 1 is cover pic of book of the month  -->
-        
-          <div class="section">
-            <div class = "row"> 
-            <div class="col s12 m4">
-            <div id="featuredBookCover"></div>
-          </div>  <!--closes section-->
-            <!--closes col -->
+          <div class="col s12 m4">
+            <div class="section" id="featuredBookCover">
+                <!--Insert book cover pic from API here-->
+            </div>                    <!--closes section-->
+          </div>                      <!--closes col -->
 
 
       <!--   Col 2 provides details pulled from Book API  -->
-        <div class="col s12 m4" >
+          <div class="col s12 m8" >
+            <div class="section" id="featureBookDetails">
+                <div id="featuredBookTitle"></div>
+                <div id="featuredBookAuthor"></div>
+            </div>
+          </div>    <!--closes column -->
+      
+      </div>        <!--closes row created in banner header-->
+      
+      <!--Picture background -->       
+       <div class="parallax"><img src="images/background5.jpg" alt="Unsplashed background img 1"></div>
 
-          <!-- <div class="section"> -->
-                <ul>
-                <li><h4>Book Details</h4></li>
-                <div class="bookinfo">
-                <li id="featuredBookTitle">Title: </li>
-                <li id="featuredBookAuthor">Author: </li>
-                <li>Pages: </li>
-                <li>Short Summary</li>
-                </div>
-              </ul>
-          <!-- </div> -->  <!--closes section -->
-        </div>    <!--closes column -->
+    </div>            <!--closes container -->
+    </div>            <!--closes section no-pad-bot-->
+  </div>              <!--closes id=index-banner -->
 
-      <!--Prints host name and address -->
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">library_books</i></h2>
-            <h5 class="center">Host Info</h5>
-            <div id="hostName"></div>
-            <div id="hostAddress"></div>
-                </div>    <!--closes div icon block -->
-        </div>      <!--closes col s12 for icon book list -->
-      </div>        <!--closes row -->
-       
-    </div>          <!--closes section -->
-
-  </div>            <!--closes container -->
+  <!--Divider panel announcing meeting date and host -->
+  <div class="section no-pad-bot">
+    <div class="container">
+      <h4 class="center brown-text">Join us on October 24, 2016, 700pm</h4>
+      <h4 class="center brown-text">HOST</h4>
+      <div id="hostInfo" class="center black-text">
+          <!--enter member host address here -->
+              <!--host name -->
+              <!--host address -->
+              <!--telephone -->
+      </div>
     </div>
-    <div class="parallax"><img src="images/background5.jpg" alt="Unsplashed background img 1"></div>
   </div>
 
   <!--Divider panel between table banner and table list -->
@@ -89,7 +86,7 @@
       <div class = "container">
         <div class="row">
           <div class ="col s9 pulled-s3"><span class="flow-text">
-            <h3>Scheduled Events</h3>
+            <h3>Upcoming Events</h3>
             <div id="memHost"></div>
             </span></div>
         </div>
@@ -197,6 +194,7 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
   <script src="js/javascript.js"></script>
   </body>
   </html>
