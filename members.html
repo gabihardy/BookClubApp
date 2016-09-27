@@ -168,10 +168,17 @@
             <button type="submit" class="btn btn-primary" id="addMemberBtn">Submit</button>
           </div>
           <!--Holding spot for message confirmation regarding success/failure of submitting form -->
-          <div class="row">
+           
+           <div id="modal1" class="modal">
+            <div class="modal-content">
+            <h4>Congrats!</h4>
+            <p>You have been successfully added as a member.</p>
+          </div>
+          </div>
+         <!--  <div class="row">
             <div class="col s12" id="messageSpot"><h5>Congratulations, you've been added as a new member</h5>
             </div>
-          </div>
+          </div> -->
           
         </form>
     </div> <!--closes row holding form -->
@@ -217,9 +224,7 @@
 
  <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script type="text/javascript" src="members.js"></script>
   <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
-
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
   <script src="members.js"></script>
