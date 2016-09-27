@@ -9,6 +9,8 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link src="assets/style.css"/>
+  <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
 </head>
 
 <body>
@@ -33,51 +35,51 @@
   <!--Picture banner -->
   <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
-      <div class="container">
+      <!--Information in 3 columns -->
+  <div class="container">
+   <div class="row">
+        <h3 class="center">October Book</h3>
 
-      <!--Banner Header Text -->
-            <h2 class="header center white-text text-lighten-2">Book of the Month</h2>
-            <br><br>
-        <div class="row">
-
-      <!-- Col 1 is cover pic of book of the month  -->
+      <!--   Col 1 is cover pic of book of the month  -->
+        
+          <div class="section">
+            <div class = "row"> 
             <div class="col s12 m4">
-              <div class="section" id="featureBookCover">
-                  <!--Insert Book cover pic from API here-->
-              </div>  <!--closes bookcover section-->
-            </div>    <!--closes col -->
-
-      <!-- Col 2 prints book details for book of the month  -->
-            <div class="col s12 m4">
-              <div class="section" id="featureBookDetails">
-                  <!--Insert Book details from API here-->
-                  <!--include one line with book title -->
-                  <!--Include one line with author's name -->
-              </div>  <!--closes bookcover section-->
-            </div>    <!--closes col -->
+            <div id="featuredBookCover"></div>
+          </div>  <!--closes section-->
+            <!--closes col -->
 
 
-        </div>        <!--closes row created in Banner Header-->
-     
-      <!--Picture background -->
-      <div class="parallax"><img src="images/green.jpg" alt="Unsplashed background img 1"></div>
+      <!--   Col 2 provides details pulled from Book API  -->
+        <div class="col s12 m4" >
 
-      </div>          <!--closes container -->
-   </div>             <!--closes section -->
-  </div>              <!--closes ID indexBanner-->
+          <!-- <div class="section"> -->
+                <ul>
+                <li><h4>Book Details</h4></li>
+                <div class="bookinfo">
+                <li id="featuredBookTitle">Title: </li>
+                <li id="featuredBookAuthor">Author: </li>
+                <li>Pages: </li>
+                <li>Short Summary</li>
+                </div>
+              </ul>
+          <!-- </div> -->  <!--closes section -->
+        </div>    <!--closes column -->
 
-  <!--Divider panel announcing meeting date and host -->
-   <div class="section no-pad-bot"  >
-      <div class = "container">
-         <h4 class="center brown-text">Join us on October 17, 700pm</h4>
-         <h4 class="center brown-text">HOST</h4>
-         <div id="hostInfo" class="center black-text">
-          <!--enter member host address here-->
-              <!--host name-->
-              <!--host address-->
-              <!--telephone-->
-         </div>
-      </div>
+      <!--Prints host name and address -->
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">library_books</i></h2>
+            <h5 class="center">Host Info</h5>
+            <div id="hostName"></div>
+            <div id="hostAddress"></div>
+                </div>    <!--closes div icon block -->
+        </div>      <!--closes col s12 for icon book list -->
+      </div>        <!--closes row -->
+    </div>          <!--closes section -->
+  </div>            <!--closes container -->
+    </div>
+    <div class="parallax"><img src="images/background5.jpg" alt="Unsplashed background img 1"></div>
   </div>
 
   <!--Divider panel between table banner and table list -->
@@ -85,7 +87,8 @@
       <div class = "container">
         <div class="row">
           <div class ="col s9 pulled-s3"><span class="flow-text">
-            <h3>Upcoming Events</h3>
+            <h3>Scheduled Events</h3>
+            <div id="memHost"></div>
             </span></div>
         </div>
         </div>
@@ -93,49 +96,25 @@
   </div>
 
   <!-- Event List: assigns each member a date to host a meeting-->
-  <div class="container">
+<div class="container">
     <table>
         <thead>
           <tr>
-              <th data-field="eventDate">Meeting Date</th>
-              <th data-field="memberName">Host</th>
-              <th data-field="Telephone">Telephone</th>
-              <th data-field="bookChoice">Book Title</th>
-              <th data-field="author">Author</th>
-              <th data-field="pageCount">No of Pages</th>
+              <th>Meeting Date</th>
+              <th>Host</th>
+              <th>Telephone</th>
+              <th>Book Title</th>
+              <th>Author</th>
+              <th>No of Pages</th>
           </tr>
         </thead>
 
-        <!--Placeholder data.  Table will be built dynamically-->
-        <tbody>
-          <tr>
-            <td>10/17/2016</td>
-            <td>Alvin Chow</td>
-            <td>512-555-6123</td>
-            <td>Cat in the Hat</td>
-            <td>Dr. Seuss</td>
-            <td>61</td>
-          </tr>
-          <tr>
-            <td>11/21/2016</td>
-            <td>Alan Rickert</td>
-            <td>512-555-7615</td>
-            <td>Atlas Shrugged</td>
-            <td>Ayn Rand</td>
-            <td>1192</td>
-          </tr>
-          <tr>
-            <td>12/19/2016</td>
-            <td>Jonathan Jones</td>
-            <td>512-555-0987</td>
-            <td>Racing in the Rain</td>
-            <td>Garth Stein</td>
-            <td>304</td>
-          </tr>
-          <tr></tr>
+        <!--Placeholder data.  Table will be built dynamically from firebase in member page-->
+        <tbody id="memberTable">
         </tbody>
     </table>
-  </div> <!--closes table container -->
+</div>
+   <!--closes table container -->
             
   <!--Dark teal Divider panel between table list and form -->
       <div class="section no-pad-bot" id="memberPanel2">
@@ -148,56 +127,30 @@
       </div>
 
 
-    <!-- ADD MEMBER: Entry Form collects input from users-->
+    <!-- ADD Book: Hidden form until you click you name to add book to event entry Form collects input from users-->
   <div class="container">
+   <div class="hide">
      <div class="row">
-        <form class="col s12">
+        <form class="input-field col s12">
           <div class="row">
-            <div class="input-field col s6">
-              <input id="firstName" type="text" class="validate">
-              <label for="first_name">First Name</label>
-            </div>
-            <div class="input-field col s6">
-              <input id="last_name" type="text" class="validate">
-              <label for="last_name">Last Name</label>
-            </div>
+            <!-- <div class="input-field col s6" > -->              
+              <input value=" " id="memberName" type="text" class="validate">
+                  <label class="active" for="first_name2">First Name</label>
+              
+            <!-- </div> -->
+            
           </div>
           <div class="row">
-            <div class="input-field col s12">
-              <input id="dateJoined" type="text" class="validate">
-              <label for="dateJoined">Today's Date (DD/MM/YY - ex: 01/01/89)</label>
+            <div class="input-field col s12">              
+              <label for="book Title Author Name" type="hidden">Book Title or Author Name</label>
+              <input type="text" class="validate" id="bookTitle">
             </div>
           </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="address" type="text" class="validate">
-              <label for="address">Address #</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s6">
-              <input id="city" type="text" class="validate">
-              <label for="city">City</label>
-            </div>
-            <div class="input-field col s2">
-              <input id="state" type="text" class="validate">
-              <label for="TX">State</label>
-            </div>
-            <div class="input-field col s4">
-              <input id="zip" type="text" class="validate">
-              <label for="zip">ZIP</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="telephone" type="text" class="validate">
-              <label for="telephone">Telephone #</label>
-            </div>
-          </div>
-          <button type="submit" class="btn btn-primary" id="addMemberBtn">Submit</button>
+          
+          <button type="submit" class="btn btn-primary" id="addBookBtn">Submit</button>
         </form>
     </div>
-
+    </div>
   </div> <!--closes form container-->
            
 
@@ -242,9 +195,6 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
-  <script src="js/events.js" type="text/javascript"></script>
- 
-
-
+  <script src="js/javascript.js"></script>
   </body>
   </html>
