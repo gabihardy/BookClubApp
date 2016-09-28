@@ -2632,6 +2632,11 @@ ul.browser-default li {
 
 ul li {
   list-style-type: none;
+
+}
+.bookinfo{
+  color: black;
+  line-height: 23px;
 }
 
 a {

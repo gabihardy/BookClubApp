@@ -3,14 +3,14 @@ $(document).ready(function() {
 
 
 	// Initialize Firebase
-	var config = {
-	apiKey: "AIzaSyBWoGRlIJelSKmejkb5R9QiAZ1oZItNwVY",
-	authDomain: "bookclubapp-df393.firebaseapp.com",
-	databaseURL: "https://bookclubapp-df393.firebaseio.com",
-	storageBucket: "bookclubapp-df393.appspot.com",
-	messagingSenderId: "479342044608"
-	};
-	firebase.initializeApp(config);
+  var config = {
+    apiKey: "AIzaSyCAjceUADSO_PUY429xNxmex4o5lsJ-CGk",
+    authDomain: "mybook-b4147.firebaseapp.com",
+    databaseURL: "https://mybook-b4147.firebaseio.com",
+    storageBucket: "mybook-b4147.appspot.com",
+    messagingSenderId: "688020515173"
+  };
+  firebase.initializeApp(config);
 
 	var database = firebase.database();
 
@@ -58,7 +58,7 @@ $(document).ready(function() {
 	});
 
 	database.ref().on("child_added", function(snapshot) {
-		
+
 		console.log(snapshot.val());
 		var firstName = snapshot.val().firstName;
 		var lastName = snapshot.val().lastName;
@@ -81,8 +81,8 @@ $(document).ready(function() {
 		tableRow.append("<td>" + city + "</td>");
 		tableRow.append("<td>" + state + "</td>");
 		tableRow.append("<td>" + zip + "</td>");
-		tableRow.append("<td>" + phone + "</td>");
-		tableRow.append("<td>" + joinDate + "</td")
+		tableRow.append("<td>" + phone.replace(/(\d{3})(\d{3})(\d{4})/,'$1-$2-$3') + "</td>");
+		tableRow.append("<td>" + moment(joinDate).format("MM/DD/YY") + "</td")
 		memberTable.append(tableRow);
 		// Change the HTML to reflect
 		// database.ref().orderByChild("startInput").limitToLast(1).on("child_added", function(snapshot){
