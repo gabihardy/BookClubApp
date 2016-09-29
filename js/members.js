@@ -39,9 +39,11 @@ $(document).ready(function() {
 		var zip       = $('#zip').val().trim();
 		var phone     = $('#phone').val().trim();
 
+
 		
 
 		var joinDate = Date.now();
+		var hostDate = date.joinDate.setUTCMonth(3);
 
 		database.ref().push({
 			firstName: firstName,
@@ -52,7 +54,8 @@ $(document).ready(function() {
 			state: state,
 			zip: zip,
 			phone: phone,
-			joinDate: joinDate
+			joinDate: joinDate,
+			hostDate: hostDate
 		});
 
 	});
@@ -69,6 +72,7 @@ $(document).ready(function() {
 		var zip = snapshot.val().zip;
 		var phone = snapshot.val().phone;
 		var joinDate = snapshot.val().joinDate;
+		var hostDate = snapshot.val().hostDate;
 
 		// lastName.sort();
 
@@ -82,7 +86,8 @@ $(document).ready(function() {
 		tableRow.append("<td>" + state + "</td>");
 		tableRow.append("<td>" + zip + "</td>");
 		tableRow.append("<td>" + phone + "</td>");
-		tableRow.append("<td>" + joinDate + "</td")
+		tableRow.append("<td>" + joinDate + "</td");
+		tableRow.append("<td>" + hostDate + "</td>");
 		memberTable.append(tableRow);
 		// Change the HTML to reflect
 		// database.ref().orderByChild("startInput").limitToLast(1).on("child_added", function(snapshot){
