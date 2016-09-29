@@ -38,12 +38,9 @@ $(document).ready(function() {
 		var state     = $('#state').val().trim();
 		var zip       = $('#zip').val().trim();
 		var phone     = $('#phone').val().trim();
-
-		
-
 		var joinDate = Date.now();
 
-		database.ref().push({
+		database.ref("/members").push({
 			firstName: firstName,
 			lastName: lastName,
 			email: email,
@@ -57,7 +54,7 @@ $(document).ready(function() {
 
 	});
 
-	database.ref().on("child_added", function(snapshot) {
+	database.ref("/members").orderByChild("lastName").on("child_added", function(snapshot) {
 
 		console.log(snapshot.val());
 		var firstName = snapshot.val().firstName;
