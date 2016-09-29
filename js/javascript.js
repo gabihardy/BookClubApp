@@ -33,7 +33,16 @@ var config = {
 
 var database = firebase.database();
 
-database.ref().on("child_added", function(snapshot) {
+var hostMember = database.ref("members/").limitToFirst(1);
+
+hostMember.on('value', function(data) {
+
+	console.log(data.val());
+}, function (error) {
+	console.log("error: "+error.code);
+});
+
+database.ref("/members").on("child_added", function(snapshot) {
 
 			console.log(snapshot.val());
 		var firstName = snapshot.val().firstName;
