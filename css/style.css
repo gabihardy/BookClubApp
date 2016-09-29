@@ -69,5 +69,10 @@ footer.page-footer {
 
 ul, li {
   line-height: : 3px;
+}
 
+#featureBookDetails >div {
+  line-height: 100px;
+  color:navy;
+  font-size: 32px;
 }

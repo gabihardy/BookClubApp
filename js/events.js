@@ -1,3 +1,4 @@
+  //initializing firebase database
   var config = {
     apiKey: "AIzaSyCAjceUADSO_PUY429xNxmex4o5lsJ-CGk",
     authDomain: "mybook-b4147.firebaseapp.com",
