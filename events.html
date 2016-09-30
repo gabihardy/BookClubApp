@@ -1,201 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-  <title>Book Club</title>
-
-  <!-- CSS link -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link src="assets/style.css"/>
-  <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
-</head>
-
-<body>
-  <!--Logo and Nav Bar header -->
-  <nav class="white" role="navigation">
-    <div class="nav-wrapper container">
-      <a id="logo-container" href="index.html" class="brand-logo">Neighborhood Book Club</a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="members.html">Members</a></li>
-        <li><a href="events.html">Events</a></li>
-        <li><a href="booklists.html">Book List</a></li>
-      </ul>
-
-      <ul id="nav-mobile" class="side-nav">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
-
-  <!--Picture banner -->
-  <div id="index-banner" class="parallax-container">
-    <div class="section no-pad-bot">
-      <!--Information in 3 columns -->
-  <div class="container">
-   <div class="row">
-        <h3 class="center">October Book</h3>
-
-      <!--   Col 1 is cover pic of book of the month  -->
-        
-          <div class="section">
-            <div class = "row"> 
-            <div class="col s12 m4">
-            <div id="featuredBookCover"></div>
-          </div>  <!--closes section-->
-            <!--closes col -->
-
-
-      <!--   Col 2 provides details pulled from Book API  -->
-        <div class="col s12 m4" >
-
-          <!-- <div class="section"> -->
-                <ul>
-                <li><h4>Book Details</h4></li>
-                <div class="bookinfo">
-                <li id="featuredBookTitle">Title: </li>
-                <li id="featuredBookAuthor">Author: </li>
-                <li>Pages: </li>
-                <li>Short Summary</li>
-                </div>
-              </ul>
-          <!-- </div> -->  <!--closes section -->
-        </div>    <!--closes column -->
-
-      <!--Prints host name and address -->
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">library_books</i></h2>
-            <h5 class="center">Host Info</h5>
-            <div id="hostName"></div>
-            <div id="hostAddress"></div>
-                </div>    <!--closes div icon block -->
-        </div>      <!--closes col s12 for icon book list -->
-      </div>        <!--closes row -->
-    </div>          <!--closes section -->
-  </div>            <!--closes container -->
-    </div>
-    <div class="parallax"><img src="images/background5.jpg" alt="Unsplashed background img 1"></div>
-  </div>
-
-  <!--Divider panel between table banner and table list -->
-   <div class="section no-pad-bot" id="memberPanel1">
-      <div class = "container">
-        <div class="row">
-          <div class ="col s9 pulled-s3"><span class="flow-text">
-            <h3>Scheduled Events</h3>
-            <div id="memHost"></div>
-            </span></div>
-        </div>
-        </div>
-      </div>
-  </div>
-
-  <!-- Event List: assigns each member a date to host a meeting-->
-<div class="container">
-    <table>
-        <thead>
-          <tr>
-              <th>Meeting Date</th>
-              <th>Host</th>
-              <th>Telephone</th>
-              <th>Book Title</th>
-              <th>Author</th>
-              <th>No of Pages</th>
-          </tr>
-        </thead>
-
-        <!--Placeholder data.  Table will be built dynamically from firebase in member page-->
-        <tbody id="memberTable">
-        </tbody>
-    </table>
-</div>
-   <!--closes table container -->
-            
-  <!--Dark teal Divider panel between table list and form -->
-      <div class="section no-pad-bot" id="memberPanel2">
-        <div class = "container">
-          <h3>Your turn to host?</h3>
-          <h5>Find and click your name in the "Scheduled Events" to enter your book choice</h5>
-          <p>We have built in a "courtesy" time window to allow each member ample time to acquire and read monthly book titles.  As a host, you are able to change your book choice up to 3 months in advance of the meeting date.  At that point, your book choice is locked in and members are encouraged to acquire and read the book.
-          </p><br>
-        </div>
-      </div>
-
-
-    <!-- ADD Book: Hidden form until you click you name to add book to event entry Form collects input from users-->
-  <div class="container">
-   <div class="hide">
-     <div class="row">
-        <form class="input-field col s12">
-          <div class="row">
-            <!-- <div class="input-field col s6" > -->              
-              <input value=" " id="memberName" type="text" class="validate">
-                  <label class="active" for="first_name2">First Name</label>
-              
-            <!-- </div> -->
-            
-          </div>
-          <div class="row">
-            <div class="input-field col s12">              
-              <label for="book Title Author Name" type="hidden">Book Title or Author Name</label>
-              <input type="text" class="validate" id="bookTitle">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+      <title>Book Club</title>
+      <!-- CSS link -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+      <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+      <link src="assets/style.css"/>
+      <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+   </head>
+   <body>
+      <!--Logo and Nav Bar header -->
+      <nav class="white" role="navigation">
+         <div class="nav-wrapper container">
+            <a id="logo-container" href="index.html" class="brand-logo">Neighborhood Book Club</a>
+            <ul class="right hide-on-med-and-down">
+               <li><a href="index.html">Home</a></li>
+               <li><a href="members.html">Members</a></li>
+               <li><a href="events.html">Events</a></li>
+               <li><a href="booklists.html">Book List</a></li>
+            </ul>
+            <ul id="nav-mobile" class="side-nav">
+               <li><a href="#">Navbar Link</a></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+         </div>
+      </nav>
+      <!--Picture banner -->
+      <div id="index-banner" class="parallax-container">
+         <div class="section no-pad-bot">
+            <!--Information in 3 columns -->
+            <div class="container">
+               <div class="row">
+                  <h3 class="center">October Book</h3>
+                  <!--   Col 1 is cover pic of book of the month  -->
+                  <div class="section">
+                     <div class = "row">
+                        <div class="col s12 m4">
+                           <div id="featuredBookCover"></div>
+                        </div>
+                        <!--closes section-->
+                        <!--closes col -->
+                        <!--   Col 2 provides details pulled from Book API  -->
+                        <div class="col s12 m4" >
+                           <!-- <div class="section"> -->
+                           <ul>
+                              <li>
+                                 <h4>Book Details</h4>
+                              </li>
+                              <div class="bookinfo">
+                                 <li id="featuredBookTitle">Title: </li>
+                                 <li id="featuredBookAuthor">Author: </li>
+                                 <li>Pages: </li>
+                                 <li>Short Summary</li>
+                              </div>
+                           </ul>
+                           <!-- </div> -->  <!--closes section -->
+                        </div>
+                        <!--closes column -->
+                        <!--Prints host name and address -->
+                        <div class="col s12 m4">
+                           <div class="icon-block">
+                              <h2 class="center brown-text"><i class="material-icons">library_books</i></h2>
+                              <h5 class="center">Host Info</h5>
+                              <div id="hostName"></div>
+                              <div id="hostAddress"></div>
+                           </div>
+                           <!--closes div icon block -->
+                        </div>
+                        <!--closes col s12 for icon book list -->
+                     </div>
+                     <!--closes row -->
+                  </div>
+                  <!--closes section -->
+               </div>
+               <!--closes container -->
             </div>
-          </div>
-          
-          <button type="submit" class="btn btn-primary" id="addBookBtn">Submit</button>
-        </form>
-    </div>
-    </div>
-  </div> <!--closes form container-->
-           
-
-<!--footer section -->
-  <footer class="page-footer teal">
-    <div class="container">
-      <div class="row">
-        <!--Message from managers -->
-        <div class="col l6 s12">
-          <h5 class="white-text">Book Club Team Managers</h5>
-          <p class="grey-text text-lighten-4">We live in the neighborhood and wanted to create a meeting place that brings us together.  Let us know if you have ideas to improve the book club experience.</p>
-        </div>
-        <!--Names of team leads -->
-        <div class="col l3 s12">
-          <h5 class="white-text">Team Leads</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Wilkie Overton, President</a></li>
-            <li><a class="white-text" href="#!">Gabrielle Hardy, Treasurer</a></li>
-            <li><a class="white-text" href="#!">Sandra Leal, Secretary</a></li>
-          </ul>
-        </div>
-        <!--Contact info for team leads -->
-        <div class="col l3 s12">
-          <h5 class="white-text">Contact Info</h5>
-          <ul>
-            <li><a class="white-text" href="#!">t: 512.555.1213</a></li>
-            <li><a class="white-text" href="#!">t: 512.555.1212</a></li>
-            <li><a class="white-text" href="#!">t: 512.555.1211</a></li>
-          </ul>
-        </div>
+            <div class="parallax"><img src="images/background5.jpg" alt="Unsplashed background img 1"></div>
+         </div>
+         <!--Divider panel between table banner and table list -->
+         <div class="section no-pad-bot" id="memberPanel1">
+            <div class = "container">
+               <div class="row">
+                  <div class ="col s9 pulled-s3">
+                     <span class="flow-text">
+                        <h3>Scheduled Events</h3>
+                        <div id="memHost"></div>
+                     </span>
+                  </div>
+               </div>
+            </div>
+         </div>
       </div>
-    </div>
-    <!--Notation of website builders -->
-    <div class="footer-copyright">
+      <!-- Event List: assigns each member a date to host a meeting-->
       <div class="container">
-      Made by <a class="brown-text text-lighten-3">Novela Innovation Group</a>
+         <table>
+            <thead>
+               <tr>
+                  <th>Meeting Date</th>
+                  <th>Host</th>
+                  <th>Telephone</th>
+                  <th>Book Title</th>
+                  <th>Author</th>
+                  <th>No of Pages</th>
+               </tr>
+            </thead>
+            <!--Placeholder data.  Table will be built dynamically from firebase in member page-->
+            <tbody id="memberTable">
+            </tbody>
+         </table>
       </div>
-    </div>
-  </footer>
-
- <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/javascript.js"></script>
-  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-  </body>
-  </html>
+      <!--closes table container -->
+      <!--Dark teal Divider panel between table list and form -->
+      <div class="section no-pad-bot" id="memberPanel2">
+         <div class = "container">
+            <h3>Your turn to host?</h3>
+            <h5>Find and click your name in the "Scheduled Events" to enter your book choice</h5>
+            <p>We have built in a "courtesy" time window to allow each member ample time to acquire and read monthly book titles.  As a host, you are able to change your book choice up to 3 months in advance of the meeting date.  At that point, your book choice is locked in and members are encouraged to acquire and read the book.
+            </p>
+            <br>
+         </div>
+      </div>
+      <!-- ADD Book: Hidden form until you click you name to add book to event entry Form collects input from users-->
+      <div class="container">
+         <div id="form">
+            <div class="row">
+               <form class="col s12">
+                  
+                  <div class="row">
+                     <div class="input-field col s12">
+                        <input required id="bookSearch" type="text" class="validate">
+                        <label for="book">Book Title</label>         
+                     </div>
+                  </div>
+                  <div class="row">
+                      <button type="submit" class="btn btn-primary" id="addBookBtn">Submit</button>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+      <!--footer section -->
+      <footer class="page-footer teal">
+         <div class="container">
+            <div class="row">
+               <!--Message from managers -->
+               <div class="col l6 s12">
+                  <h5 class="white-text">Book Club Team Managers</h5>
+                  <p class="grey-text text-lighten-4">We live in the neighborhood and wanted to create a meeting place that brings us together.  Let us know if you have ideas to improve the book club experience.</p>
+               </div>
+               <!--Names of team leads -->
+               <div class="col l3 s12">
+                  <h5 class="white-text">Team Leads</h5>
+                  <ul>
+                     <li><a class="white-text" href="#!">Wilkie Overton, President</a></li>
+                     <li><a class="white-text" href="#!">Gabrielle Hardy, Treasurer</a></li>
+                     <li><a class="white-text" href="#!">Sandra Leal, Secretary</a></li>
+                  </ul>
+               </div>
+               <!--Contact info for team leads -->
+               <div class="col l3 s12">
+                  <h5 class="white-text">Contact Info</h5>
+                  <ul>
+                     <li><a class="white-text" href="#!">t: 512.555.1213</a></li>
+                     <li><a class="white-text" href="#!">t: 512.555.1212</a></li>
+                     <li><a class="white-text" href="#!">t: 512.555.1211</a></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+         <!--Notation of website builders -->
+         <div class="footer-copyright">
+            <div class="container">
+               Made by <a class="brown-text text-lighten-3">Novela Innovation Group</a>
+            </div>
+         </div>
+      </footer>
+      <!--  Scripts-->
+      <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src="js/materialize.js"></script>
+      <script src="js/init.js"></script>
+      <script src="js/javascript.js"></script>
+      <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+   </body>
+</html>
