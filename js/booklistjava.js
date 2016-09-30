@@ -2,13 +2,13 @@
 // 	var search = document.getElementById('search').value
 // 	document.getElementById('results').innerHtml = ""
 // 	console.log(search)
-var search = ['Atlas Shrugged','The Prince', 'Art of War', 'The Two Towers'];
+var books = ['Atlas Shrugged','The Prince', 'Art of War', 'The Two Towers'];
 
-for (var i =  0; i < search.length; i++) {
-	console.log(search[i]);
-}
+for (var i =  0; i < books.length; i++) {
+	console.log(books[i]);
 
-var queryURL = "http://openlibrary.org/search.json?q=" + search[i];
+
+var queryURL = "http://openlibrary.org/search.json?q=" + books[i];
 
 var authKey = "dc3d0abdcc52a4411782f3b4d54ab0322a816e1a";
 
@@ -26,6 +26,8 @@ $.ajax({url: queryURL, method: 'GET', data: {limit: 1}, dataType: "json"}).done(
 				$("#previousBookView").append("<div>" + (response.docs[0].title) + "</>");
 
 });
+
+}
 
 // document.getElementById('button').addEventListener('click', bookSearch, false)
 
