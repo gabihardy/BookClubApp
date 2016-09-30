@@ -18,24 +18,24 @@ $.ajax({url: queryURL, method: 'GET', data: {limit: 1}, dataType: "json"}).done(
 
 
  $(document).ready(function(){
-
 	
+	 	
+		
 
-  // Initialize Firebase
-var config = {
-    apiKey: "AIzaSyBWoGRlIJelSKmejkb5R9QiAZ1oZItNwVY",
-    authDomain: "bookclubapp-df393.firebaseapp.com",
-    databaseURL: "https://bookclubapp-df393.firebaseio.com",
-    storageBucket: "bookclubapp-df393.appspot.com",
-    messagingSenderId: "479342044608"
-  };
-  firebase.initializeApp(config);
+	  // Initialize Firebase
+	var config = {
+	    apiKey: "AIzaSyBWoGRlIJelSKmejkb5R9QiAZ1oZItNwVY",
+	    authDomain: "bookclubapp-df393.firebaseapp.com",
+	    databaseURL: "https://bookclubapp-df393.firebaseio.com",
+	    storageBucket: "bookclubapp-df393.appspot.com",
+	    messagingSenderId: "479342044608"
+	  };
+	  firebase.initializeApp(config);
 
-var database = firebase.database();
+	var database = firebase.database();
 
-database.ref().on("child_added", function(snapshot) {
-
-			console.log(snapshot.val());
+	database.ref().on("child_added", function(snapshot) {
+		console.log(snapshot.val());
 		var firstName = snapshot.val().firstName;
 		var lastName = snapshot.val().lastName;
 		
@@ -48,38 +48,31 @@ database.ref().on("child_added", function(snapshot) {
 		var joinDate = snapshot.val().joinDate;
 		var name = firstName + lastName;
 
-        var memberTable = $("#memberTable");
+		var memdate = moment.unix(joinDate).format("MM/DD/YY");
+	    var empMonths = moment().diff(moment.unix(joinDate, 'X'), "months");
+		// var empBilled = empMonths * empRate;
+		// console.log(empBilled);
+	    var memberTable = $("#memberTable");
 		var tableRow = $("<tr>");
 
-		tableRow.append("<td>" + joinDate + "</td");
+		tableRow.append("<td>" + memdate + "</td");
 		tableRow.append("<td>" + name  + "</td>");
-		tableRow.append("<td>" + phone + "</td>");
+		tableRow.append("<td>"  + phone + "</td>");
 		// tableRow.append("<td>" + bookTitle + "</td>");
 		// tableRow.append("<td>" + bookAuthor + "</td>");
 		// tableRow.append("<td>" + numPages + "</td>")				
 		memberTable.append(tableRow);
-
-
-}, function(errorObject){
-	console.log("Error handled: " + errorObject.code)
-
-
-		
+	}, function(errorObject){
+		console.log("Error handled: " + errorObject.code);
 	});
-$("#memberTable").on("click", function (){
-	console.log(event);
-	// $("#memberName").append(name);
-$(document).ready(function() {
-    Materialize.updateTextFields(snapshot.val().name);
-  });
 
-
-
-
+	$('table').on('click', 'tr', function(event){
+ 		console.log(event);
+	});
 });
 
 
-});
+
 
 
         
