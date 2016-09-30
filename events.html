@@ -1,116 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-      <title>Book Club</title>
-      <!-- CSS link -->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-      <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-      <link src="assets/style.css"/>
-      <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
-   </head>
-   <body>
-      <!--Logo and Nav Bar header -->
-      <nav class="white" role="navigation">
-         <div class="nav-wrapper container">
-            <a id="logo-container" href="index.html" class="brand-logo">Neighborhood Book Club</a>
-            <ul class="right hide-on-med-and-down">
-               <li><a href="index.html">Home</a></li>
-               <li><a href="members.html">Members</a></li>
-               <li><a href="events.html">Events</a></li>
-               <li><a href="booklists.html">Book List</a></li>
-            </ul>
-            <ul id="nav-mobile" class="side-nav">
-               <li><a href="#">Navbar Link</a></li>
-            </ul>
-            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-         </div>
-      </nav>
-      <!--Picture banner -->
-      <div id="index-banner" class="parallax-container">
-         <div class="section no-pad-bot">
-            <!--Information in 3 columns -->
-            <div class="container">
-               <div class="row">
-                  <h3 class="center">October Book</h3>
-                  <!--   Col 1 is cover pic of book of the month  -->
-                  <div class="section">
-                     <div class = "row">
-                        <div class="col s12 m4">
-                           <div id="featuredBookCover"></div>
-                        </div>
-                        <!--closes section-->
-                        <!--closes col -->
-                        <!--   Col 2 provides details pulled from Book API  -->
-                        <div class="col s12 m4" >
-                           <!-- <div class="section"> -->
-                           <ul>
-                              <li>
-                                 <h4>Book Details</h4>
-                              </li>
-                              <div class="bookinfo">
-                                 <li id="featuredBookTitle">Title: </li>
-                                 <li id="featuredBookAuthor">Author: </li>
-                                 <li>Pages: </li>
-                                 <li>Short Summary</li>
-                              </div>
-                           </ul>
-                           <!-- </div> -->  <!--closes section -->
-                        </div>
-                        <!--closes column -->
-                        <!--Prints host name and address -->
-                        <div class="col s12 m4">
-                           <div class="icon-block">
-                              <h2 class="center brown-text"><i class="material-icons">library_books</i></h2>
-                              <h5 class="center">Host Info</h5>
-                              <div id="hostName"></div>
-                              <div id="hostAddress"></div>
-                           </div>
-                           <!--closes div icon block -->
-                        </div>
-                        <!--closes col s12 for icon book list -->
-                     </div>
-                     <!--closes row -->
-                  </div>
-                  <!--closes section -->
-               </div>
-               <!--closes container -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Book Club</title>
+
+  <!-- CSS link -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link src="assets/style.css"/>
+  <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+</head>
+
+<body>
+  <!--Logo and Nav Bar header -->
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="index.html" class="brand-logo">Neighborhood Book Club</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="members.html">Members</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="booklist.html">Book List</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <!--Picture banner -->
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+    <div class="container">
+
+    <!--Banner header title -->
+      <h2 class="header center teal-text text-lighten-2">Book of the Month</h2>
+      <div class="row">
+
+      <!--   Col 1 is cover pic of book of the month  -->
+          <div class="col s12 m4">
+            <div class="section" id="featuredBookCover">
+                <!--Insert book cover pic from API here-->
+            </div>                    <!--closes section-->
+          </div>                      <!--closes col -->
+
+
+      <!--   Col 2 provides details pulled from Book API  -->
+          <div class="col s12 m8" >
+            <div class="section center black-text" id="featureBookDetails">
+                <div id="featuredBookTitle"></div><br><br>
+                <div>by</div>
+                <div id="featuredBookAuthor"></div>
             </div>
-            <div class="parallax"><img src="images/background5.jpg" alt="Unsplashed background img 1"></div>
-         </div>
-         <!--Divider panel between table banner and table list -->
-         <div class="section no-pad-bot" id="memberPanel1">
-            <div class = "container">
-               <div class="row">
-                  <div class ="col s9 pulled-s3">
-                     <span class="flow-text">
-                        <h3>Scheduled Events</h3>
-                        <div id="memHost"></div>
-                     </span>
-                  </div>
-               </div>
-            </div>
-         </div>
+          </div>    <!--closes column -->
+      
+      </div>        <!--closes row created in banner header-->
+      
+      <!--Picture background -->       
+       <div class="parallax"><img src="images/background5.jpg" alt="Unsplashed background img 1"></div>
+
+    </div>            <!--closes container -->
+    </div>            <!--closes section no-pad-bot-->
+  </div>              <!--closes id=index-banner -->
+
+  <!--Divider panel announcing meeting date and host -->
+  <div class="section no-pad-bot">
+    <div class="container">
+      <h4 class="center brown-text">Join us on October 24, 2016, 700pm</h4>
+      <h4 class="center brown-text">HOST</h4>
+      <div id="hostInfo" class="center black-text">
+          <!--enter member host address here -->
+              <!--host name -->
+              <!--host address -->
+              <!--telephone -->
       </div>
-      <!-- Event List: assigns each member a date to host a meeting-->
-      <div class="container">
-         <table>
-            <thead>
-               <tr>
-                  <th>Meeting Date</th>
-                  <th>Host</th>
-                  <th>Telephone</th>
-                  <th>Book Title</th>
-                  <th>Author</th>
-                  <th>No of Pages</th>
-               </tr>
-            </thead>
-            <!--Placeholder data.  Table will be built dynamically from firebase in member page-->
-            <tbody id="memberTable">
-            </tbody>
-         </table>
+    </div>
+  </div>
+
+  <!--Divider panel between table banner and table list -->
+   <div class="section no-pad-bot" id="memberPanel1">
+      <div class = "container">
+        <div class="row">
+          <div class ="col s9 pulled-s3"><span class="flow-text">
+            <h3>Upcoming Events</h3>
+            <div id="memHost"></div>
+            </span></div>
+        </div>
+        </div>
+      </div>
+  </div>
+
+  <!-- Event List: assigns each member a date to host a meeting-->
+<div class="container">
+    <table>
+        <thead>
+          <tr>
+              <th>Meeting Date</th>
+              <th>Host</th>
+              <th>Telephone</th>
+              <th>Book Title</th>
+              <th>Author</th>
+          </tr>
+        </thead>
+
+        <!--Placeholder data.  Table will be built dynamically from firebase in member page-->
+        <tbody id="memberTable">
+        </tbody>
+    </table>
+</div>
+   <!--closes table container -->
+            
+  <!--Dark teal Divider panel between table list and form -->
       </div>
       <!--closes table container -->
       <!--Dark teal Divider panel between table list and form -->

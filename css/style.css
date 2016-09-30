@@ -22,7 +22,7 @@ p {
 
 .parallax-container {
   min-height: 380px;
-  line-height: 0;
+  line-height: 25px;
   height: auto;
   color: rgba(255,255,255,.9);
 }
@@ -39,6 +39,12 @@ p {
   background-color: #1a627a;
   color: white;
 }
+
+#featuredBookTitle {
+  font-size: 48px;
+  padding-top: 40px;
+}
+
 
 @media only screen and (max-width : 992px) {
   .parallax-container .section {

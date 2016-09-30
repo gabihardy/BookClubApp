@@ -57,9 +57,11 @@
         
 
 
+
         $("#addBookBtn").on("click", function(event) {
                $('#form').hide();
                 event.preventDefault();
+
 
             // $('#modal1').openModal();
     
@@ -89,12 +91,16 @@
                 book: book
             });
 
+
             var search = book;
+
 
             var queryURLBase = "http://openlibrary.org/search.json?q=";
 
+
             var authKey = "dc3d0abdcc52a4411782f3b4d54ab0322a816e1a";
             var queryURL = queryURLBase + book;
+
 
 
             $.ajax({

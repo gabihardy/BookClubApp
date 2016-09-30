@@ -38,12 +38,9 @@ $(document).ready(function() {
 		var state     = $('#state').val().trim();
 		var zip       = $('#zip').val().trim();
 		var phone     = $('#phone').val().trim();
-
-		
-
 		var joinDate = Date.now();
 
-		database.ref().push({
+		database.ref("/members").push({
 			firstName: firstName,
 			lastName: lastName,
 			email: email,
@@ -57,8 +54,8 @@ $(document).ready(function() {
 
 	});
 
-	database.ref().on("child_added", function(snapshot) {
-		
+	database.ref("/members").orderByChild("lastName").on("child_added", function(snapshot) {
+
 		console.log(snapshot.val());
 		var firstName = snapshot.val().firstName;
 		var lastName = snapshot.val().lastName;
@@ -81,8 +78,8 @@ $(document).ready(function() {
 		tableRow.append("<td>" + city + "</td>");
 		tableRow.append("<td>" + state + "</td>");
 		tableRow.append("<td>" + zip + "</td>");
-		tableRow.append("<td>" + phone + "</td>");
-		tableRow.append("<td>" + joinDate + "</td")
+		tableRow.append("<td>" + phone.replace(/(\d{3})(\d{3})(\d{4})/,'$1-$2-$3') + "</td>");
+		tableRow.append("<td>" + moment(joinDate).format("MM/DD/YY") + "</td")
 		memberTable.append(tableRow);
 		// Change the HTML to reflect
 		// database.ref().orderByChild("startInput").limitToLast(1).on("child_added", function(snapshot){
