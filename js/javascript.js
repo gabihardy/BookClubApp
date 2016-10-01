@@ -61,11 +61,12 @@
             
 
         
-database.ref("/members").orderByChild("joinDate").on("child_added", function(snapshot) {
+// database.ref("/members").orderByChild("joinDate").on("child_added", function(snapshot) {
             
-            var book = $('#bookSearch');
-            var queryURLBase = "http://openlibrary.org/search.json?q=";            
-            var queryURL = queryURLBase + book;
+            var book = $('#bookSearch').val();
+            console.log('book');
+            var queryURL = "http://openlibrary.org/search.json?q=Atlas+Shrugged";            
+            
 
 
 
@@ -85,55 +86,51 @@ database.ref("/members").orderByChild("joinDate").on("child_added", function(sna
 
                 $("#featuredBookCover").append("<img src=http://covers.openlibrary.org/b/isbn/" + response.docs[0].isbn[0] + "-M.jpg />");
                 $("#featuredBookAuthor").append("<div>" + (response.docs[0].author_name[0]) + "</>");
-                $("#featuredBookTitle").append("<div>" + (response.docs[0].title) + "</>");
+               
 
 
+            // var book = $('#bookSearch').val().trim();
 
+            // var firstName = snapshot.val().firstName;
+            // var lastName = snapshot.val().lastName;
+            // var email = snapshot.val().email;
+            // var address = snapshot.val().address;
+            // var city = snapshot.val().city;
+            // var state = snapshot.val().state;
+            // var zip = snapshot.val().zip;
+            // var phone = snapshot.val().phone;
+            // var joinDate = snapshot.val().joinDate;
+            // var book = snapshot.val().book;            
 
+            // var memberTable = $("#memberTable");
+            // var tableRow = $("<tr>");
+            // // tableRow.append("<td>" + moment(joinDate).format("MM/DD/YY") + "</td")
+            // // tableRow.append("<td>" + firstName + " " + lastName +"</td>");
+            // // tableRow.append("<td>" + phone.replace(/(\d{3})(\d{3})(\d{4})/,'$1-$2-$3') + "</td>");
+            // // tableRow.append("<td>" + book + "</td>");   
 
-
-            var book = $('#bookSearch').val().trim();
-
-            var firstName = snapshot.val().firstName;
-            var lastName = snapshot.val().lastName;
-            var email = snapshot.val().email;
-            var address = snapshot.val().address;
-            var city = snapshot.val().city;
-            var state = snapshot.val().state;
-            var zip = snapshot.val().zip;
-            var phone = snapshot.val().phone;
-            var joinDate = snapshot.val().joinDate;
-            var book = snapshot.val().book;            
-
-            var memberTable = $("#memberTable");
-            var tableRow = $("<tr>");
-            tableRow.append("<td>" + moment(joinDate).format("MM/DD/YY") + "</td")
-            tableRow.append("<td>" + firstName + " " + lastName +"</td>");
-            tableRow.append("<td>" + phone.replace(/(\d{3})(\d{3})(\d{4})/,'$1-$2-$3') + "</td>");
-            tableRow.append("<td>" + book + "</td>");   
-
-            memberTable.prepend(tableRow);
+            // memberTable.prepend(tableRow);
 
 
 
 
          
        
-            database.ref("/members").push({
-                joinDate: joinDate,
-                firstName: firstName,
-                lastName: lastName,
-                email: email,
-                address: address,
-                city: city,
-                state: state,
-                zip: zip,
-                phone: phone,
-                book: book
-            });
+            // database.ref("/members").push({
+            //     joinDate: joinDate,
+            //     firstName: firstName,
+            //     lastName: lastName,
+            //     email: email,
+            //     address: address,
+            //     city: city,
+            //     state: state,
+            //     zip: zip,
+            //     phone: phone,
+            //     book: book
+            // });
              });
 
-});
+// });
             
             });
 

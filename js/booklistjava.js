@@ -1,8 +1,4 @@
-// function bookSearch(){
-// 	var search = document.getElementById('search').value
-// 	document.getElementById('results').innerHtml = ""
-// 	console.log(search)
-var books = ['Atlas Shrugged','The Prince', 'Art of War', 'The Two Towers'];
+var books = ['Atlas Shrugged','Gone Girl', 'the catcher in the rye'];
 
 for (var i =  0; i < books.length; i++) {
 	console.log(books[i]);
@@ -29,9 +25,3 @@ $.ajax({url: queryURL, method: 'GET', data: {limit: 1}, dataType: "json"}).done(
 
 }
 
-// document.getElementById('button').addEventListener('click', bookSearch, false)
-
-// function bookSearch(){
-// 	var search = document.getElementById('search').value
-// 	document.getElementById('results').innerHtml = ""
-// 	console.log(search)
