@@ -1,122 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-  <title>Book Club</title>
-
-  <!-- CSS link -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link src="assets/style.css">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta content=
+    "width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"
+    name="viewport">
+    <title>Book Club</title><!-- CSS link -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel=
+    "stylesheet">
+    <link href="css/materialize.css" media="screen,projection" rel="stylesheet"
+    type="text/css">
+    <link href="css/style.css" media="screen,projection" rel="stylesheet" type=
+    "text/css">
+    <link src="assets/style.css">
 </head>
-
 <body>
-  <!--Logo and Nav Bar header -->
-  <nav class="white" role="navigation">
-    <div class="nav-wrapper container">
-      <a id="logo-container" href="index.html" class="brand-logo">Neighborhood Book Club</a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="members.html">Members</a></li>
-        <li><a href="events.html">Events</a></li>
-        <li><a href="booklist.html">Book List</a></li>
-      </ul> 
-
-      <ul id="nav-mobile" class="side-nav">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
-
-  <!--Picture banner -->
-  <div id="index-banner" class="parallax-container">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <br><br>
-        <h1 class="header right teal-text text-lighten-2"></h1>
-      </div>
-    </div>
-    <div class="parallax"><img src="images/background7.jpg" alt="Unsplashed background img 6"></div>
-  </div>
-
-  <!--Divider panel between table banner and table list -->
-   <div class="section no-pad-bot" id="memberPanel1">
-      <div class = "container">
-        <div class="row">
-          <div class ="col s9 pulled-s3"><span class="flow-text">
-            <h3>Book List</h3>
-            <h5 class="black-text">The titles below are books that our club has previously read.</h5>
-          </span></div>
+    <!--Logo and Nav Bar header -->
+    <nav class="white" role="navigation">
+        <div class="nav-wrapper container">
+            <a class="brand-logo" href="index.html" id=
+            "logo-container">Neighborhood Book Club</a>
+            <ul class="right hide-on-med-and-down">
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>
+                    <a href="members.html">Members</a>
+                </li>
+                <li>
+                    <a href="events.html">Events</a>
+                </li>
+                <li>
+                    <a href="booklist.html">Book List</a>
+                </li>
+            </ul>
+            <ul class="side-nav" id="nav-mobile">
+                <li>
+                    <a href="#">Navbar Link</a>
+                </li>
+            </ul><a class="button-collapse" data-activates="nav-mobile" href=
+            "#"><i class="material-icons">menu</i></a>
         </div>
-      </div>
-    </div>
-
-  <!--Books the Book Club has read - API call goes here-->
-  <div class="container">
-    <div class="row">
-      <div class ="col s9 pulled-s3"> 
-          <div id="previousBookView"></div>
-      </div> 
-    </div>
-  </div> <!--closes table container -->
-            
-  <!--Divider panel after books from API -->
-      <div class="section no-pad-bot" id="memberPanel2">
-        <div class = "container center">
-          <h5>Check out EVENTS to see list of upcoming titles.</h5>
-        <br><br>
+    </nav><!--Picture banner -->
+    <div class="parallax-container" id="index-banner">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <br>
+                <br>
+                <h1 class="header right teal-text text-lighten-2"></h1>
+            </div>
         </div>
-      </div>
-
-
-  <!--footer section -->
-  <footer class="page-footer teal">
+        <div class="parallax"><img alt="Unsplashed background img 6" src=
+        "images/background7.jpg"></div>
+    </div><!--Divider panel between table banner and table list -->
+    <div class="section no-pad-bot" id="memberPanel1">
+        <div class="container">
+            <div class="row">
+                <div class="col s9 pulled-s3">
+                    <span class="flow-text"></span>
+                    <h3><span class="flow-text">Book List</span></h3>
+                    <h5 class="black-text"><span class="flow-text">The titles
+                    below are books that our club has previously
+                    read.</span></h5>
+                </div>
+            </div>
+        </div>
+    </div><!--Books the Book Club has read - API call goes here-->
     <div class="container">
-      <div class="row">
-        <!--Message from managers -->
-        <div class="col l6 s12">
-          <h5 class="white-text">Book Club Team Managers</h5>
-          <p class="grey-text text-lighten-4">We live in the neighborhood and wanted to create a meeting place that brings us together.  Let us know if you have ideas to improve the book club experience.</p>
+        <div class="row">
+            <div class="col s9 pulled-s3">
+                <div id="previousBookView"></div>
+            </div>
         </div>
-        <!--Names of team leads -->
-        <div class="col l3 s12">
-          <h5 class="white-text">Team Leads</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Wilkie Overton, President</a></li>
-            <li><a class="white-text" href="#!">Gabrielle Hardy, Treasurer</a></li>
-            <li><a class="white-text" href="#!">Sandra Leal, Secretary</a></li>
-          </ul>
+    </div><!--closes table container -->
+    <!--Divider panel after books from API -->
+    <div class="section no-pad-bot" id="memberPanel2">
+        <div class="container center">
+            <h5>Check out EVENTS to see list of upcoming titles.</h5><br>
+            <br>
         </div>
-        <!--Contact info for team leads -->
-        <div class="col l3 s12">
-          <h5 class="white-text">Contact Info</h5>
-          <ul>
-            <li><a class="white-text" href="#!">t: 512.555.1213</a></li>
-            <li><a class="white-text" href="#!">t: 512.555.1212</a></li>
-            <li><a class="white-text" href="#!">t: 512.555.1211</a></li>
-          </ul>
+    </div><!--footer section -->
+    <footer class="page-footer teal">
+        <div class="container">
+            <div class="row">
+                <!--Message from managers -->
+                <div class="col l6 s12">
+                    <h5 class="white-text">Book Club Team Managers</h5>
+                    <p class="grey-text text-lighten-4">We live in the
+                    neighborhood and wanted to create a meeting place that
+                    brings us together. Let us know if you have ideas to
+                    improve the book club experience.</p>
+                </div><!--Names of team leads -->
+                <div class="col l3 s12">
+                    <h5 class="white-text">Team Leads</h5>
+                    <ul>
+                        <li>
+                            <a class="white-text" href="#!">Wilkie Overton,
+                            President</a>
+                        </li>
+                        <li>
+                            <a class="white-text" href="#!">Gabrielle Hardy,
+                            Treasurer</a>
+                        </li>
+                        <li>
+                            <a class="white-text" href="#!">Sandra Leal,
+                            Secretary</a>
+                        </li>
+                    </ul>
+                </div><!--Contact info for team leads -->
+                <div class="col l3 s12">
+                    <h5 class="white-text">Contact Info</h5>
+                    <ul>
+                        <li>
+                            <a class="white-text" href="#!">t: 512.555.1213</a>
+                        </li>
+                        <li>
+                            <a class="white-text" href="#!">t: 512.555.1212</a>
+                        </li>
+                        <li>
+                            <a class="white-text" href="#!">t: 512.555.1211</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div><!--Notation of website builders -->
+        <div class="footer-copyright">
+            <div class="container">
+                Made by <a class="brown-text text-lighten-3">Novela Innovation
+                Group</a>
+            </div>
         </div>
-      </div>
-    </div>
-    <!--Notation of website builders -->
-    <div class="footer-copyright">
-      <div class="container">
-      Made by <a class="brown-text text-lighten-3">Novela Innovation Group</a>
-      </div>
-    </div>
-  </footer>
-
- <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/booklistjava.js"></script>
- 
-
-
-  </body>
-  </html>
+    </footer><!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js">
+    </script> 
+    <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js">
+    </script> 
+    <script src="js/materialize.js">
+    </script> 
+    <script src="js/init.js">
+    </script> 
+    <script src="js/booklistjava.js">
+    </script>
+</body>
+</html>
